@@ -1,0 +1,35 @@
+.reviews-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: var(--yellow);
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .carousel img,
+  .gallery img {
+    width: 100%;
+    max-width: 360px; /* Pour garder le ratio 1080x1350 */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    justify-items: center;
+  }
+
+  section.reviews-section {
+    padding-bottom: 8rem; /* Pour éviter d'empiéter sur le footer fixé */
+  }
