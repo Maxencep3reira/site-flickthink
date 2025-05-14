@@ -17,6 +17,14 @@
   --black: #000000;
 }
 
+svg {
+  width: auto;
+  height: auto;
+  filter: contrast(170%) brightness(1000%);
+  opacity: 10%;
+}
+  
+
 body {
   background-color: var(--black);
   color: var(--yellow);
@@ -33,31 +41,36 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 60%;
   pointer-events: none;
   z-index: 0; /* reste en fond */
   background:
-    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
-    radial-gradient(circle at 53% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
-    radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
-    radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
+    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 600px),
+    radial-gradient(circle at 85% 60%, rgb(246, 200, 68, 0.12) 400px, transparent 600px);
   filter: blur(40px) contrast(1.2);
   background-blend-mode: screen;
 }
 
 
   header {
-  position: relative;
-  z-index: 10;
-  
-  color: var(--light-grey);
-  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;                  /* Au‑dessus de tout */
+  background: rgba(0, 0, 0, 0.25); /* Légère opacité noire */
+  backdrop-filter: blur(10px);     /* Flou derrière */
+  -webkit-backdrop-filter: blur(10px);
+
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between; /* Met le logo à gauche et la nav à droite */
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header img {
@@ -66,9 +79,9 @@ header img {
 }
 
 nav {
-  position: absolute;  /* Utiliser position absolute pour centrer le nav */
-  left: 50%;  /* Centrer horizontalement */
-  transform: translateX(-50%); /* Ajuster avec translate pour compenser */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 2rem;
 }
