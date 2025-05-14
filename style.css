@@ -58,7 +58,6 @@
     bottom: 0;
     width: 100vw;
     position: fixed;
-    padding: 1.5rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+    padding: 1.5rem;   
     margin-top: 3rem;
   }
