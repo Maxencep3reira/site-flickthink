@@ -26,7 +26,6 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-/* Taches jaunes floues */
 
 .yellow-blobs {
   position: fixed;
@@ -35,11 +34,9 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
   z-index: 0; /* reste en fond */
   background:
     radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
-    radial-gradient(circle at 60% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
     radial-gradient(circle at 53% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
     radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
     radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
