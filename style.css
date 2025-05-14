@@ -23,6 +23,11 @@
     text-align: center;
   }
 
+  header img {
+    max-width: 200px;
+    height: auto;
+  }
+
   nav {
     background-color: var(--yellow);
     display: flex;
