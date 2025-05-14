@@ -55,6 +55,9 @@
     background-color: var(--black);
     color: var(--light-grey);
     text-align: center;
+    bottom: 0;
+    width: 100vw;
+    position: fixed;
     padding: 1.5rem;
     margin-top: 3rem;
   }
