@@ -1,7 +1,7 @@
 .reviews-title {
     text-align: center;
     font-size: 3rem;
-    margin: 2rem 0;
+    margin: 3rem 0 2rem;
     color: var(--yellow);
   }
 
@@ -9,27 +9,33 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-bottom: 4rem;
     flex-wrap: wrap;
+    margin-bottom: 4rem;
+    z-index: 1;
+    position: relative;
   }
 
   .carousel img,
   .gallery img {
     width: 100%;
-    max-width: 360px; /* Pour garder le ratio 1080x1350 */
+    max-width: 360px; /* 1080 / 3 pour garder le ratio 1080x1350 */
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    aspect-ratio: 4 / 5;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
   }
 
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0 2rem;
     justify-items: center;
+    z-index: 1;
+    position: relative;
+    padding-bottom: 6rem; /* pour éviter de passer sous le footer */
   }
 
-  section.reviews-section {
-    padding-bottom: 8rem; /* Pour éviter d'empiéter sur le footer fixé */
+  body {
+    overflow: auto; /* Permet le scroll pour cette page */
   }
