@@ -61,6 +61,7 @@ body {
   background: rgba(0, 0, 0, 0.25); /* Légère opacité noire */
   backdrop-filter: blur(10px);     /* Flou derrière */
   -webkit-backdrop-filter: blur(10px);
+
 }
 
 .header-content {
@@ -107,6 +108,7 @@ nav a {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
+  
 
   footer {
     background-color: var(--black);

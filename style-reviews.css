@@ -1,41 +1,182 @@
-.reviews-title {
-    text-align: center;
-    font-size: 3rem;
-    margin: 3rem 0 2rem;
-    color: var(--yellow);
-  }
+:root {
+  --yellow: #f6c844;
+  --light-grey: #ededed;
+  --black: #000000;
+}
 
-  .carousel {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 4rem;
-    z-index: 1;
-    position: relative;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
 
-  .carousel img,
-  .gallery img {
-    width: 100%;
-    max-width: 360px; /* 1080 / 3 pour garder le ratio 1080x1350 */
-    height: auto;
-    aspect-ratio: 4 / 5;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 0 12px rgba(0,0,0,0.5);
-  }
+body {
+  background-color: var(--black);
+  color: var(--yellow);
+  overflow: auto;
+  position: relative;
+}
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    z-index: 1;
-    position: relative;
-    padding-bottom: 6rem; /* pour éviter de passer sous le footer */
-  }
+/* Effet de fond (taches jaunes) */
+.yellow-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
+    radial-gradient(circle at 53% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
+    radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
+    radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
+  filter: blur(40px) contrast(1.2);
+  background-blend-mode: screen;
+}
 
-  body {
-    overflow: auto; /* Permet le scroll pour cette page */
-  }
+/* HEADER */
+header {
+  position: relative;
+  z-index: 10;
+  background-color: var(--black);
+  color: var(--light-grey);
+  padding: 1rem 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header img {
+  max-width: 100px;
+  height: auto;
+}
+
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* TITRE DE LA PAGE */
+.hero h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 3rem 0 2rem;
+  color: var(--yellow);
+  z-index: 1;
+  position: relative;
+}
+
+/* --- CARROUSEL --- */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.carousel-item {
+  width: 300px;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, z-index 0.3s, opacity 0.5s;
+  opacity: 0.7;
+  transform: scale(0.9) translateY(20px); /* Image décalée */
+  z-index: 1;
+}
+
+.carousel-item.active {
+  transform: scale(1.1) translateY(0); /* Image centrale */
+  z-index: 3;
+  opacity: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--yellow);
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+
+
+/* --- GALERIE --- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  z-index: 1;
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 6rem; /* évite que le footer chevauche la galerie */
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--black);
+  color: var(--light-grey);
+  text-align: center;
+  bottom: 0;
+  width: 100vw;
+  position: fixed;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
