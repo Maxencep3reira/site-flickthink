@@ -7,6 +7,48 @@
   <link rel="stylesheet" href="style-reviews.css" />
 </head>
 
+<script>
+  const track = document.querySelector('.carousel-track');
+const images = document.querySelectorAll('.carousel-item');
+const leftBtn = document.querySelector('.carousel-btn.left');
+const rightBtn = document.querySelector('.carousel-btn.right');
+
+let currentIndex = 1; // Commencer par la 2e image au centre
+
+function updateCarousel() {
+  images.forEach((img, index) => {
+    img.classList.remove('active');
+  });
+
+  images[currentIndex].classList.add('active');
+
+  // Réorganiser l'ordre d'affichage
+  const reordered = [
+    images[(currentIndex + images.length - 1) % images.length],
+    images[currentIndex],
+    images[(currentIndex + 1) % images.length]
+  ];
+
+  reordered.forEach(img => track.appendChild(img)); // Réorganiser l'affichage
+}
+
+leftBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + images.length - 1) % images.length; // Décrémenter l'index
+  updateCarousel();
+});
+
+rightBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length; // Incrémenter l'index
+  updateCarousel();
+});
+
+updateCarousel(); // Initialiser
+
+</script>
+
+
+
+
 <body>
 
 <header>
@@ -15,7 +57,7 @@
     <nav>
       <a href="reviews.html">Critiques de films</a>
       <a href="behind-the-actor.html">Behind the Actor</a>
-      <a href="about.html">À propos</a>
+      <a href="index.html">À propos</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -24,23 +66,34 @@
 <div class="yellow-blobs"></div>
 
 <section>
-  <h1 class="reviews-title">REVIEW</h1>
+  <section class="hero">
+    <h1>Reviews</h1>
+    
+  </section>
 
-  <div class="carousel">
-    <img src="images/review1.jpg" alt="Critique 1">
-    <img src="images/review2.jpg" alt="Critique 2">
-    <img src="images/review3.jpg" alt="Critique 3">
-  </div>
 
-  <div class="gallery">
-    <img src="images/review4.jpg" alt="Critique 4">
-    <img src="images/review5.jpg" alt="Critique 5">
-    <img src="images/review6.jpg" alt="Critique 6">
-    <img src="images/review7.jpg" alt="Critique 7">
-    <img src="images/review8.jpg" alt="Critique 8">
-    <img src="images/review9.jpg" alt="Critique 9">
-    <!-- Ajoute d’autres images si besoin -->
+<!-- CARROUSEL -->
+<div class="carousel-wrapper">
+  <button class="carousel-btn left">&#10094;</button>
+  <div class="carousel-track">
+    <img src="images/cover1.jpg" alt="Review 1" class="carousel-item">
+    <img src="images/cover2.jpg" alt="Review 2" class="carousel-item">
+    <img src="images/cover3.jpg" alt="Review 3" class="carousel-item">
   </div>
+  <button class="carousel-btn right">&#10095;</button>
+</div>
+
+
+<!-- GALERIE -->
+<div class="gallery">
+  <img src="images/cover1.jpg" alt="Review 7">
+  <img src="images/cover1.jpg" alt="Review 8">
+  <img src="images/cover1.jpg" alt="Review 9">
+  <img src="images/cover1.jpg" alt="Review 10">
+  <img src="images/cover1.jpg" alt="Review 11">
+  <img src="images/cover1.jpg" alt="Review 12">
+</div>
+
 </section>
 
 <footer>

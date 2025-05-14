@@ -48,7 +48,7 @@ body {
   header {
   position: relative;
   z-index: 10;
-  background-color: var(--black);
+  
   color: var(--light-grey);
   padding: 1rem 2rem;
 }
