@@ -11,10 +11,52 @@
     font-family: 'Helvetica Neue', sans-serif;
   }
 
-  body {
-    background-color: var(--light-grey);
-    color: var(--black);
-  }
+  :root {
+  --yellow: #f6c844;
+  --light-grey: #ededed;
+  --black: #000000;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--yellow);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Taches jaunes floues */
+.yellow-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
+    radial-gradient(circle at 60% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
+    radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
+    radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
+  filter: blur(40px) contrast(1.2);
+  background-blend-mode: screen;
+}
+
+/* Optionnel : effet de grain avec un pseudo bruit */
+.yellow-blobs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><filter id='noiseFilter'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23noiseFilter)'/></svg>");
+  background-repeat: repeat;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+
 
   header {
     background-color: var(--black);
