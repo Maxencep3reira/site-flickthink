@@ -71,7 +71,6 @@ body {
   }
 
   nav {
-    background-color: var(--yellow);
     /* background-color: var(--yellow);*/
     display: flex;
     justify-content: center;
@@ -80,7 +79,6 @@ body {
   }
 
   nav a {
-    color: var(--black);
     color: var(--yellow);
     text-decoration: none;
     font-weight: bold;
