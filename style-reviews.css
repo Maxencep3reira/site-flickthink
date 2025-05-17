@@ -18,29 +18,37 @@ body {
   position: relative;
 }
 
-/* Effet de fond (taches jaunes) */
+svg {
+  width: auto;
+  height: auto;
+  filter: contrast(170%) brightness(1000%);
+  opacity: 10%;
+}
+
+
 .yellow-blobs {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 60%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 0; /* reste en fond */
   background:
-    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
-    radial-gradient(circle at 53% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
-    radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
-    radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
+    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 600px),
+    radial-gradient(circle at 85% 60%, rgb(246, 200, 68, 0.12) 400px, transparent 600px);
   filter: blur(40px) contrast(1.2);
   background-blend-mode: screen;
 }
+
+
 
 /* HEADER */
 header {
   position: relative;
   z-index: 10;
-  background-color: var(--black);
+  
   color: var(--light-grey);
   padding: 1rem 2rem;
 }
@@ -58,7 +66,7 @@ header img {
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -82,6 +90,15 @@ nav a {
   position: relative;
 }
 
+.hero2 h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 3rem 0 2rem;
+  color: var(--yellow);
+  z-index: 1;
+  position: relative;
+}
+
 /* --- CARROUSEL --- */
 .carousel-wrapper {
   position: relative;
@@ -96,7 +113,7 @@ nav a {
 
 .carousel-track {
   position: relative;
-  width: 900px;
+  width: 800px;
   height: 480px;
   display: flex;
   justify-content: center;
@@ -105,7 +122,7 @@ nav a {
 
 .carousel-item {
   position: absolute;
-  width: 300px;
+  width: 350px;
   aspect-ratio: 4 / 5;
   border-radius: 10px;
   object-fit: cover;
@@ -159,26 +176,28 @@ nav a {
 
 .carousel-btn.left {
   left: 0;
+  transform: translateX(400%) translateY(-10px);
 }
 
 .carousel-btn.right {
   right: 0;
+  transform: translateX(-400%) translateY(10px);
 }
 
 /* --- GALERIE --- */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   justify-items: center;
   z-index: 1;
   position: relative;
-  padding: 2rem;
+  padding: 4rem;
   padding-bottom: 6rem; /* évite que le footer chevauche la galerie */
 }
 
 .gallery img {
-  width: 100%;
+  width: 130%;
   max-width: 360px;
   aspect-ratio: 4 / 5;
   border-radius: 10px;
@@ -193,7 +212,7 @@ footer {
   text-align: center;
   bottom: 0;
   width: 100vw;
-  position: fixed;
+  
   padding: 1.5rem;
   margin-top: 3rem;
 }

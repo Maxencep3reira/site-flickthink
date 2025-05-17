@@ -25,12 +25,11 @@
   </div>
 </header>
 
-<div class="yellow-blobs"></div>
+
 
 <section>
   <section class="hero">
-    <h1>Reviews</h1>
-    
+    <h1>Dernières sorties</h1>
   </section>
 
 
@@ -45,6 +44,10 @@
   <button class="carousel-btn right">&#10095;</button>
 </div>
 
+<section class="hero2">
+  <h1>Reviews</h1>
+</section>
+
 
 <!-- GALERIE -->
 <div class="gallery">
@@ -54,13 +57,42 @@
   <img src="images/cover1.jpg" alt="Review 10">
   <img src="images/cover1.jpg" alt="Review 11">
   <img src="images/cover1.jpg" alt="Review 12">
+  <img src="images/cover1.jpg" alt="Review 13">
+  <img src="images/cover1.jpg" alt="Review 14">
+  <img src="images/cover1.jpg" alt="Review 15">
+  <img src="images/cover1.jpg" alt="Review 16">
+  <img src="images/cover1.jpg" alt="Review 17">
+  <img src="images/cover1.jpg" alt="Review 18">
 </div>
 
 </section>
 
+
+
+<svg viewBox='0 0 313 313' xmlns='http://www.w3.org/2000/svg'>
+  <filter id='noiseFilter'>
+    <feTurbulence 
+      type='fractalNoise' 
+      baseFrequency='3.73' 
+      numOctaves='6' 
+      stitchTiles='stitch'/>
+  </filter>
+  
+  <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
+</svg>
+
+<div class="yellow-blobs"></div> <!-- Ajout pour les taches -->
+
+
+
+
 <footer>
   <p>&copy; 2025 FlickThink. Tous droits réservés.</p>
 </footer>
+
+
+
+
 
 <script>
   const track = document.querySelector('.carousel-track');
