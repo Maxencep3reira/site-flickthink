@@ -12,10 +12,17 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: var(--black);
   color: var(--yellow);
   overflow: auto;
   position: relative;
+  min-height: 100vh; /* hauteur min = hauteur de l’écran */
+}
+
+main {
+  flex: 1; /* prend tout l'espace restant entre header et footer */
 }
 
 svg {
@@ -212,6 +219,7 @@ footer {
   text-align: center;
   bottom: 0;
   width: 100vw;
+  position: relative;
   
   padding: 1.5rem;
   margin-top: 3rem;
