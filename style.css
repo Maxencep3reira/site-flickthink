@@ -27,7 +27,7 @@
   }
   
 
-
+/*
 
 svg {
   width: auto;
@@ -36,7 +36,7 @@ svg {
   opacity: 10%;
 }
   
-
+*/
 
 
 .yellow-blobs {
@@ -62,34 +62,56 @@ header {
   z-index: 10;
   
   color: var(--light-grey);
-  padding: 1rem 2rem;
+  padding: 3rem 2rem;
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  display: flex;
+  /*flex-direction: column; /* pour empiler logo + nav verticalement */
+  align-items: center;
+  
+  padding: 1rem 0;
+  z-index: 100;
+  
 }
+
+
 
 header img {
   max-width: 100px;
   height: auto;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
 }
 
 nav {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
+  
+ 
+  justify-content: center;
   display: flex;
   gap: 2rem;
+  width: 84%;
 }
 
 nav a {
+  justify-content: center;
   color: var(--yellow);
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6); /* <<< ici l'ombre portée */
+}
+
+nav a:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 10px var(--yellow);
+  transition: all 0.3s ease;
 }
 
 
