@@ -95,29 +95,48 @@ nav a {
 }
 
 .carousel-track {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.5s ease;
   position: relative;
+  width: 900px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item {
+  position: absolute;
   width: 300px;
   aspect-ratio: 4 / 5;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease, z-index 0.3s, opacity 0.5s;
-  opacity: 0.7;
-  transform: scale(0.9) translateY(20px); /* Image décalée */
+  transition: all 0.5s ease;
+  opacity: 0.5;
   z-index: 1;
+  transform: scale(0.9) translateY(20px);
 }
 
-.carousel-item.active {
-  transform: scale(1.1) translateY(0); /* Image centrale */
+/* Image centrale */
+.carousel-item.center {
+  transform: scale(1.1) translateY(0);
   z-index: 3;
   opacity: 1;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Image de gauche */
+.carousel-item.left {
+  left: 10%;
+  transform: translateX(0%) scale(0.9) translateY(20px);
+  z-index: 2;
+}
+
+/* Image de droite */
+.carousel-item.right {
+  right: 10%;
+  transform: translateX(0%) scale(0.9) translateY(20px);
+  z-index: 2;
 }
 
 .carousel-btn {
@@ -130,7 +149,7 @@ nav a {
   font-size: 2rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
   transition: background-color 0.3s ease;
 }
 
@@ -145,8 +164,6 @@ nav a {
 .carousel-btn.right {
   right: 0;
 }
-
-
 
 /* --- GALERIE --- */
 .gallery {
@@ -166,7 +183,7 @@ nav a {
   aspect-ratio: 4 / 5;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 
 /* FOOTER */

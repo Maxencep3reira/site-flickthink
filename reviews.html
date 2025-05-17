@@ -7,44 +7,6 @@
   <link rel="stylesheet" href="style-reviews.css" />
 </head>
 
-<script>
-const track = document.querySelector('.carousel-track');
-const images = document.querySelectorAll('.carousel-item');
-const leftBtn = document.querySelector('.carousel-btn.left');
-const rightBtn = document.querySelector('.carousel-btn.right');
-
-let currentIndex = 1; // Commencer par la 2e image au centre
-
-function updateCarousel() {
-  images.forEach((img, index) => {
-    img.classList.remove('active');
-  });
-
-  images[currentIndex].classList.add('active');
-
-  // Réorganiser l'ordre d'affichage
-  const reordered = [
-    images[(currentIndex + images.length - 1) % images.length],
-    images[currentIndex],
-    images[(currentIndex + 1) % images.length]
-  ];
-
-  reordered.forEach(img => track.appendChild(img)); // Réorganiser l'affichage
-}
-
-leftBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + images.length - 1) % images.length; // Décrémenter l'index
-  updateCarousel();
-});
-
-rightBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length; // Incrémenter l'index
-  updateCarousel();
-});
-
-updateCarousel(); // Initialiser
-
-</script>
 
 
 
@@ -76,9 +38,9 @@ updateCarousel(); // Initialiser
 <div class="carousel-wrapper">
   <button class="carousel-btn left">&#10094;</button>
   <div class="carousel-track">
-    <img src="images/cover1.jpg" alt="Review 1" class="carousel-item">
-    <img src="images/cover2.jpg" alt="Review 2" class="carousel-item">
-    <img src="images/cover3.jpg" alt="Review 3" class="carousel-item">
+    <img src="images/cover1.jpg" alt="Review 1" class="carousel-item left">
+    <img src="images/cover2.jpg" alt="Review 2" class="carousel-item center">
+    <img src="images/cover3.jpg" alt="Review 3" class="carousel-item right">
   </div>
   <button class="carousel-btn right">&#10095;</button>
 </div>
@@ -99,6 +61,44 @@ updateCarousel(); // Initialiser
 <footer>
   <p>&copy; 2025 FlickThink. Tous droits réservés.</p>
 </footer>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const images = Array.from(document.querySelectorAll('.carousel-item'));
+  const leftBtn = document.querySelector('.carousel-btn.left');
+  const rightBtn = document.querySelector('.carousel-btn.right');
+
+  let currentIndex = 1; // on commence avec l’image du centre
+
+  function updateCarousel() {
+    // Réinitialiser les classes
+    images.forEach(img => {
+      img.classList.remove('left', 'center', 'right');
+    });
+
+    // Index des positions
+    const leftIndex = (currentIndex + images.length - 1) % images.length;
+    const rightIndex = (currentIndex + 1) % images.length;
+
+    images[leftIndex].classList.add('left');
+    images[currentIndex].classList.add('center');
+    images[rightIndex].classList.add('right');
+  }
+
+  leftBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + images.length - 1) % images.length;
+    updateCarousel();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  });
+
+  updateCarousel(); // Initialisation
+</script>
+
+
 
 </body>
 </html>
