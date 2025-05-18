@@ -229,7 +229,7 @@ nav a:hover {
   gap: 1.5rem;
   overflow-x: auto;
   padding: 4rem 2rem;
-  margin-left: 4rem;
+  
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -276,7 +276,10 @@ nav a:hover {
 
 
 
-   /* MENU BURGER - CACHÉ EN VERSION DESKTOP */
+ /* ----------------------------------------------------------*/
+
+
+ /* MENU BURGER - CACHÉ EN VERSION DESKTOP */
 .burger {
   display: none;
   flex-direction: column;
@@ -295,6 +298,9 @@ nav a:hover {
   display: block;
   transition: all 0.3s ease;
 }
+
+
+
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
@@ -319,6 +325,115 @@ nav a:hover {
   nav.active {
     display: flex;
   }
+
+
+/* TITRE DE LA PAGE */
+.hero h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 3rem 0 2rem;
+  color: var(--yellow);
+  z-index: 1;
+  position: relative;
 }
 
-  
+.hero2 h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0rem 0 0rem;
+  color: var(--yellow);
+  z-index: 1;
+  position: relative;
+}
+
+
+
+
+/* --- CARROUSEL --- */
+
+
+.carousel-track {
+  position: relative;
+  width: 200px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 300px;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  opacity: 0.5;
+  z-index: 1;
+  transform: scale(0.9) translateY(20px);
+}
+
+/* Image centrale */
+.carousel-item.center {
+  transform: scale(1.1) translateY(0);
+  z-index: 3;
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Image de gauche */
+.carousel-item.left {
+  left: 10%;
+  transform: translateX(0%) scale(0.9) translateY(20px);
+  z-index: 2;
+}
+
+/* Image de droite */
+.carousel-item.right {
+  right: 10%;
+  transform: translateX(0%) scale(0.9) translateY(20px);
+  z-index: 2;
+}
+
+.carousel-btn {
+  display: none;
+}
+
+
+
+
+
+
+/* --- GALERIE --- */
+.horizontal-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 4rem 2rem;
+
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.horizontal-carousel img {
+  flex: 0 0 auto;
+  width: 250px;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+}
