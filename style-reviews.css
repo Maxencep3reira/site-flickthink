@@ -228,7 +228,7 @@ nav a:hover {
   gap: 1.5rem;
   overflow-x: auto;
   padding: 4rem 2rem;
-  margin-left: 4rem;
+  
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -412,7 +412,7 @@ footer {
   gap: 1.5rem;
   overflow-x: auto;
   padding: 4rem 2rem;
-  margin-left: 1rem;
+
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
