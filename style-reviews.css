@@ -279,6 +279,50 @@ footer {
 
 
 
+ /* MENU BURGER - CACHÉ EN VERSION DESKTOP */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  margin-right: 2rem;
+  background: none;
+  border: none;
+  z-index: 101;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--yellow);
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--black);
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--yellow);
+    z-index: 100;
+  }
+
+  .burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  nav.active {
+    display: flex;
+  }
+}
 
 
   
