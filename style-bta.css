@@ -216,27 +216,48 @@ nav a:hover {
     transform: translateX(-400%) translateY(10px);
   }
   
+
+
+
+
+
+  
+
   /* --- GALERIE --- */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    z-index: 1;
-    position: relative;
-    padding: 4rem;
-    padding-bottom: 6rem; /* évite que le footer chevauche la galerie */
-  }
+.horizontal-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 4rem 2rem;
+  margin-left: 4rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.horizontal-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.horizontal-carousel img {
+  flex: 0 0 auto;
+  width: 300px;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.horizontal-carousel img:hover {
+  transform: scale(1.05);
+  opacity: 90%;
+}
+
   
-  .gallery img {
-    width: 130%;
-    max-width: 360px;
-    aspect-ratio: 4 / 5;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  }
-  
+
+
   /* FOOTER */
   footer {
     background-color: var(--black);
