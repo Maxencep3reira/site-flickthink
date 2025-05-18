@@ -148,9 +148,6 @@ nav a:hover {
 
 
 
-  
-
-
 
 
 
@@ -277,7 +274,18 @@ nav a:hover {
   }
 
 
+ .hero h1 {
+    font-size: 2rem;
+    
+  }
 
+
+  .insta-promo {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--light-grey);
+  font-size: 1rem;
+}
 
 
   
