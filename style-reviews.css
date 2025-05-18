@@ -420,7 +420,7 @@ footer {
 /* --- GALERIE --- */
 .horizontal-carousel {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   overflow-x: auto;
   padding: 4rem 2rem;
 
@@ -431,7 +431,7 @@ footer {
 
 .horizontal-carousel img {
   flex: 0 0 auto;
-  width: 250px;
+  width: 350px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   object-fit: cover;
