@@ -362,6 +362,10 @@ footer {
 
 /* --- CARROUSEL --- */
 
+.carousel-track a {
+  display: contents; /* ou inline-block si contents pose problème */
+}
+
 
 .carousel-track {
   position: relative;

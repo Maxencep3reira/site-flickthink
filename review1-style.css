@@ -246,7 +246,7 @@ footer {
 
 .horizontal-carousel img {
   flex: 0 0 auto;
-  width: 250px;
+  width: 550px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   object-fit: cover;
