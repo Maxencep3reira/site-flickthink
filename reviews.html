@@ -123,17 +123,73 @@
     images[rightIndex].classList.add('right');
   }
 
-  leftBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + images.length - 1) % images.length;
-    updateCarousel();
-  });
 
-  rightBtn.addEventListener('click', () => {
+
+
+  function resetAutoScroll() {
+  clearInterval(autoScrollInterval);
+  autoScrollInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % images.length;
     updateCarousel();
-  });
+  }, 4000);
+}
 
-  updateCarousel(); // Initialisation
+leftBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + images.length - 1) % images.length;
+  updateCarousel();
+  resetAutoScroll();
+});
+
+rightBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+  resetAutoScroll();
+});
+
+
+
+
+// Swipe mobile
+let startX = 0;
+let endX = 0;
+
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = startX - endX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      currentIndex = (currentIndex + 1) % images.length;
+    } else {
+      currentIndex = (currentIndex + images.length - 1) % images.length;
+    }
+    updateCarousel();
+    resetAutoScroll();
+  }
+
+
+
+
+// DÉFILEMENT AUTOMATIQUE
+let autoScrollInterval = setInterval(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+}, 3000); // change toutes les 3 secondes
+
+
+
+
+}
+
+
+
 </script>
 
 

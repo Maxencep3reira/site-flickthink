@@ -397,7 +397,9 @@ footer {
   z-index: 2;
 }
 
-
+.carousel-btn {
+  display: none;
+}
 
 
 
