@@ -241,6 +241,7 @@ nav a:hover {
   background: none;
   border: none;
   z-index: 101;
+  
 }
 
 .burger span {
@@ -274,4 +275,10 @@ nav a:hover {
   nav.active {
     display: flex;
   }
+
+
+
+
+
+  
 }
