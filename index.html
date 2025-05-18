@@ -14,12 +14,24 @@
   <header>
     <div class="header-content">
       <img src="images/logo.png" alt="Logo FlickThink">
-      <nav>
-        <a href="index.html">Accueil</a>
-        <a href="reviews.html">Critiques de films</a>
-        <a href="bta.html">Behind the Actor</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+
+      <button class="burger" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+       </button>
+
+      
+  <nav class="mobile-nav-wrapper">
+    <a href="index.html">Accueil</a>
+    <a href="reviews.html">Critiques de films</a>
+    <a href="bta.html">Behind the Actor</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+      
+
+
+
     </div>
   </header>
 
@@ -87,6 +99,14 @@
   
 
 
+<script>
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('nav');
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
 
 
 
