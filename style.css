@@ -11,11 +11,6 @@
     font-family: 'Helvetica Neue', sans-serif;
   }
 
-  :root {
-  --yellow: #f6c844;
-  --light-grey: #ededed;
-  --black: #000000;
-}
 
 svg {
   width: auto;

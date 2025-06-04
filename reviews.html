@@ -7,6 +7,44 @@
   <link rel="stylesheet" href="style-reviews.css">
 </head>
 
+<script>
+const track = document.querySelector('.carousel-track');
+const images = document.querySelectorAll('.carousel-item');
+const leftBtn = document.querySelector('.carousel-btn.left');
+const rightBtn = document.querySelector('.carousel-btn.right');
+
+let currentIndex = 1; // Commencer par la 2e image au centre
+
+function updateCarousel() {
+  images.forEach((img, index) => {
+    img.classList.remove('active');
+  });
+
+  images[currentIndex].classList.add('active');
+
+  // Réorganiser l'ordre d'affichage
+  const reordered = [
+    images[(currentIndex + images.length - 1) % images.length],
+    images[currentIndex],
+    images[(currentIndex + 1) % images.length]
+  ];
+
+  reordered.forEach(img => track.appendChild(img)); // Réorganiser l'affichage
+}
+
+leftBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + images.length - 1) % images.length; // Décrémenter l'index
+  updateCarousel();
+});
+
+rightBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length; // Incrémenter l'index
+  updateCarousel();
+});
+
+updateCarousel(); // Initialiser
+
+</script>
 
 
 
@@ -15,28 +53,24 @@
 
 <header>
   <div class="header-content">
-    <a href="index.html"> <img src="images/logo.png" alt="Logo FlickThink"></a>
-
-    <button class="burger" aria-label="Menu">
-  <span></span>
-  <span></span>
-  <span></span>
-       </button>
-
+    <img src="images/logo.png" alt="Logo FlickThink">
     <nav>
-      <a href="index.html">Accueil</a>
       <a href="reviews.html">Critiques de films</a>
-      <a href="bta.html">Behind the Actor</a>
+      <a href="behind-the-actor.html">Behind the Actor</a>
+      <a href="index.html">À propos</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 
-<main>
 
+<div class="yellow-blobs"></div>
+
+<section>
   <section class="hero">
-    <h1>Dernières sorties</h1>
+    <h1>Reviews</h1>
+    
   </section>
 
 
@@ -44,65 +78,25 @@
 <div class="carousel-wrapper">
   <button class="carousel-btn left">&#10094;</button>
   <div class="carousel-track">
-
-
-<a href="review1.html">
-    <img src="images/review1.jpg" alt="Review 1" class="carousel-item left">
-</a>
-
-<a href="review2.html">
-    <img src="images/review2.jpg" alt="Review 2" class="carousel-item center">
-    </a>
-
-    <a href="review3.html">
-    <img src="images/review3.jpg" alt="Review 3" class="carousel-item right">
-    </a>
-
-    
+    <img src="images/cover1.jpg" alt="Review 1" class="carousel-item">
+    <img src="images/cover2.jpg" alt="Review 2" class="carousel-item">
+    <img src="images/cover3.jpg" alt="Review 3" class="carousel-item">
   </div>
   <button class="carousel-btn right">&#10095;</button>
 </div>
 
-<section class="hero2">
-  <h1>Reviews</h1>
-</section>
-
 
 <!-- GALERIE -->
-<div class="horizontal-carousel">
-  <img src="images/review1.jpg" alt="Review 1">
-  <img src="images/review1.jpg" alt="Review 2">
-  <img src="images/review1.jpg" alt="Review 3">
-  <img src="images/review1.jpg" alt="Review 4">
-  <img src="images/review1.jpg" alt="Review 5">
-  <img src="images/review1.jpg" alt="Review 6">
-  <img src="images/review1.jpg" alt="Review 7">
-  <img src="images/review1.jpg" alt="Review 8">
-  <img src="images/review1.jpg" alt="Review 9">
-  <img src="images/review1.jpg" alt="Review 10">
+<div class="gallery">
+  <img src="images/cover1.jpg" alt="Review 7">
+  <img src="images/cover1.jpg" alt="Review 8">
+  <img src="images/cover1.jpg" alt="Review 9">
+  <img src="images/cover1.jpg" alt="Review 10">
+  <img src="images/cover1.jpg" alt="Review 11">
+  <img src="images/cover1.jpg" alt="Review 12">
 </div>
 
-
-
-
-
-<!--
-<svg viewBox='0 0 313 313' xmlns='http://www.w3.org/2000/svg'>
-  <filter id='noiseFilter'>
-    <feTurbulence 
-      type='fractalNoise' 
-      baseFrequency='3.73' 
-      numOctaves='6' 
-      stitchTiles='stitch'/>
-  </filter>
-  
-    <rect width='100%' height='100%' filter='url(#noiseFilter)'/>  
-</svg>
--->
-<div class="yellow-blobs"></div> <!-- Ajout pour les taches -->
-
-</main>
-
+</section>
 
 <svg viewBox='0 0 313 313' xmlns='http://www.w3.org/2000/svg'>
   <filter id='noiseFilter'>
@@ -119,118 +113,6 @@
 <footer>
   <p>&copy; 2025 FlickThink. Tous droits réservés.</p>
 </footer>
-
-
-
-
-
-<script>
-  const track = document.querySelector('.carousel-track');
-  const images = Array.from(document.querySelectorAll('.carousel-item'));
-  const leftBtn = document.querySelector('.carousel-btn.left');
-  const rightBtn = document.querySelector('.carousel-btn.right');
-
-  let currentIndex = 1; // on commence avec l’image du centre
-
-  function updateCarousel() {
-    // Réinitialiser les classes
-    images.forEach(img => {
-      img.classList.remove('left', 'center', 'right');
-    });
-
-    // Index des positions
-    const leftIndex = (currentIndex + images.length - 1) % images.length;
-    const rightIndex = (currentIndex + 1) % images.length;
-
-    images[leftIndex].classList.add('left');
-    images[currentIndex].classList.add('center');
-    images[rightIndex].classList.add('right');
-  }
-
-
-
-
-  function resetAutoScroll() {
-  clearInterval(autoScrollInterval);
-  autoScrollInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateCarousel();
-  }, 4000);
-}
-
-leftBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + images.length - 1) % images.length;
-  updateCarousel();
-  resetAutoScroll();
-});
-
-rightBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateCarousel();
-  resetAutoScroll();
-});
-
-
-
-
-// Swipe mobile
-let startX = 0;
-let endX = 0;
-
-track.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
-
-track.addEventListener('touchend', (e) => {
-  endX = e.changedTouches[0].clientX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  const diff = startX - endX;
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      currentIndex = (currentIndex + 1) % images.length;
-    } else {
-      currentIndex = (currentIndex + images.length - 1) % images.length;
-    }
-    updateCarousel();
-    resetAutoScroll();
-  }
-
-
-
-
-// DÉFILEMENT AUTOMATIQUE
-let autoScrollInterval = setInterval(() => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateCarousel();
-}, 4000); // change toutes les 4 secondes
-
-
-
-
-}
-
-
-
-</script>
-
-
-
-
-<script>
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('nav');
-
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
-</script>
-
-
-
-
 
 </body>
 </html>
