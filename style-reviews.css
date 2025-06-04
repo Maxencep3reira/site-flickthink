@@ -11,32 +11,30 @@
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-
-  
-
 body {
   display: flex;
   flex-direction: column;
   background-color: var(--black);
   color: var(--yellow);
-  margin: 0;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
-  font-family: 'Helvetica Neue', sans-serif;
-  min-height: 100vh; /* hauteur min = hauteur de l’écran */
+  min-height: 100vh;
+  /* hauteur min = hauteur de l’écran */
 }
 
 main {
-  flex: 1; /* prend tout l'espace restant entre header et footer */
+  flex: 1;
+  /* prend tout l'espace restant entre header et footer */
 }
+
 /*
-svg {
-  width: auto;
-  height: auto;
-  filter: contrast(170%) brightness(1000%);
-  opacity: 10%;
-}
-*/
+  svg {
+    width: auto;
+    height: auto;
+    filter: contrast(170%) brightness(1000%);
+    opacity: 10%;
+  }
+  */
 
 .yellow-blobs {
   position: fixed;
@@ -46,7 +44,8 @@ svg {
   height: 100%;
   opacity: 60%;
   pointer-events: none;
-  z-index: 0; /* reste en fond */
+  z-index: 0;
+  /* reste en fond */
   background:
     radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 600px),
     radial-gradient(circle at 85% 60%, rgb(246, 200, 68, 0.12) 400px, transparent 600px);
@@ -60,13 +59,13 @@ svg {
 header {
   position: relative;
   z-index: 10;
-  
+
   color: var(--light-grey);
   padding: 3rem 2rem;
 }
 
 .header-content {
-  
+
   position: fixed;
   top: 0;
   left: 0;
@@ -74,10 +73,10 @@ header {
   display: flex;
   /*flex-direction: column; /* pour empiler logo + nav verticalement */
   align-items: center;
-  
+
   padding: 1rem 0;
   z-index: 100;
-  
+
 }
 
 
@@ -91,8 +90,8 @@ header img {
 }
 
 nav {
-  
- 
+
+
   justify-content: center;
   display: flex;
   gap: 2rem;
@@ -105,8 +104,8 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
-  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6); /* <<< ici l'ombre portée */
-  
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
+  /* <<< ici l'ombre portée */
 }
 
 nav a:hover {
@@ -116,23 +115,6 @@ nav a:hover {
 }
 
 
-
-  section {
-    padding: 2rem;
-  }
-
-  .hero {
-    text-align: center;
-    margin: 3rem 0;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-
-  
 
 /* TITRE DE LA PAGE */
 .hero h1 {
@@ -154,17 +136,6 @@ nav a:hover {
 }
 
 /* --- CARROUSEL --- */
-
-
-
-.carousel-track a {
-  display: contents; /* ou inline-block si contents pose problème */
-}
-
-
-
-
-
 .carousel-wrapper {
   position: relative;
   display: flex;
@@ -256,21 +227,23 @@ nav a:hover {
 
 
 
-
 /* --- GALERIE --- */
 .horizontal-carousel {
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
   padding: 4rem 2rem;
-  
+
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 .horizontal-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
+  /* Chrome, Safari */
 }
 
 .horizontal-carousel img {
@@ -292,9 +265,6 @@ nav a:hover {
 
 
 
-
-
-
 /* FOOTER */
 footer {
   background-color: var(--black);
@@ -303,7 +273,7 @@ footer {
   bottom: 0;
   width: 100vw;
   position: relative;
-  
+
   padding: 1.5rem;
   margin-top: 3rem;
 }
@@ -311,10 +281,12 @@ footer {
 
 
 
+
+
 /* ----------------------------------------------------------*/
 
 
- /* MENU BURGER - CACHÉ EN VERSION DESKTOP */
+/* MENU BURGER - CACHÉ EN VERSION DESKTOP */
 .burger {
   display: none;
   flex-direction: column;
@@ -362,111 +334,109 @@ footer {
   }
 
 
-/* TITRE DE LA PAGE */
-.hero h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 3rem 0 2rem;
-  color: var(--yellow);
-  z-index: 1;
-  position: relative;
-}
+  /* TITRE DE LA PAGE */
+  .hero h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 3rem 0 2rem;
+    color: var(--yellow);
+    z-index: 1;
+    position: relative;
+  }
 
-.hero2 h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 0rem 0 0rem;
-  color: var(--yellow);
-  z-index: 1;
-  position: relative;
-}
-
-
+  .hero2 h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0rem 0 0rem;
+    color: var(--yellow);
+    z-index: 1;
+    position: relative;
+  }
 
 
-/* --- CARROUSEL --- */
-
-.carousel-track a {
-  display: contents; /* ou inline-block si contents pose problème */
-}
 
 
-.carousel-track {
-  position: relative;
-  width: 200px;
-  height: 480px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* --- CARROUSEL --- */
 
-.carousel-item {
-  position: absolute;
-  width: 300px;
-  aspect-ratio: 4 / 5;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  transition: all 0.5s ease;
-  opacity: 0.5;
-  z-index: 1;
-  transform: scale(0.9) translateY(20px);
-}
 
-/* Image centrale */
-.carousel-item.center {
-  transform: scale(1.1) translateY(0);
-  z-index: 3;
-  opacity: 1;
-  left: 50%;
-  transform: translateX(-50%) scale(1.1);
-}
+  .carousel-track {
+    position: relative;
+    width: 200px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* Image de gauche */
-.carousel-item.left {
-  left: 10%;
-  transform: translateX(0%) scale(0.9) translateY(20px);
-  z-index: 2;
-}
+  .carousel-item {
+    position: absolute;
+    width: 300px;
+    aspect-ratio: 4 / 5;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+    opacity: 0.5;
+    z-index: 1;
+    transform: scale(0.9) translateY(20px);
+  }
 
-/* Image de droite */
-.carousel-item.right {
-  right: 10%;
-  transform: translateX(0%) scale(0.9) translateY(20px);
-  z-index: 2;
-}
+  /* Image centrale */
+  .carousel-item.center {
+    transform: scale(1.1) translateY(0);
+    z-index: 3;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%) scale(1.1);
+  }
 
-.carousel-btn {
-  display: none;
-}
+  /* Image de gauche */
+  .carousel-item.left {
+    left: 10%;
+    transform: translateX(0%) scale(0.9) translateY(20px);
+    z-index: 2;
+  }
+
+  /* Image de droite */
+  .carousel-item.right {
+    right: 10%;
+    transform: translateX(0%) scale(0.9) translateY(20px);
+    z-index: 2;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
 
 
 
 
 
 
-/* --- GALERIE --- */
-.horizontal-carousel {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 4rem 2rem;
+  /* --- GALERIE --- */
+  .horizontal-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 4rem 2rem;
 
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+  }
 
-.horizontal-carousel img {
-  flex: 0 0 auto;
-  width: 350px;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
+  .horizontal-carousel img {
+    flex: 0 0 auto;
+    width: 250px;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
 
 
 
@@ -476,7 +446,3 @@ footer {
 
 
 }
-
-
-  
-
