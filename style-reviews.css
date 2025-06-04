@@ -11,45 +11,55 @@
   font-family: 'Helvetica Neue', sans-serif;
 }
 
+
+  
+
 body {
   background-color: var(--black);
   color: var(--yellow);
-  overflow: auto;
+  margin: 0;
+  overflow: hidden;
   position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-/* Effet de fond (taches jaunes) */
+
 .yellow-blobs {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 60%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 0; /* reste en fond */
   background:
-    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 300px),
-    radial-gradient(circle at 53% 20%, rgba(246, 200, 68, 0.1) 200px, transparent 350px),
-    radial-gradient(circle at 30% 70%, rgba(246, 200, 68, 0.08) 300px, transparent 300px),
-    radial-gradient(circle at 85% 60%, rgba(246, 200, 68, 0.14) 400px, transparent 350px);
+    radial-gradient(circle at 10% 30%, rgba(246, 200, 68, 0.12) 270px, transparent 600px),
+    radial-gradient(circle at 85% 60%, rgb(246, 200, 68, 0.12) 400px, transparent 600px);
   filter: blur(40px) contrast(1.2);
   background-blend-mode: screen;
 }
 
-/* HEADER */
-header {
-  position: relative;
-  z-index: 10;
-  background-color: var(--black);
-  color: var(--light-grey);
-  padding: 1rem 2rem;
+
+  header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;                  /* Au‑dessus de tout */
+  background: rgba(0, 0, 0, 0.25); /* Légère opacité noire */
+  backdrop-filter: blur(10px);     /* Flou derrière */
+  -webkit-backdrop-filter: blur(10px);
+
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header img {
@@ -71,6 +81,25 @@ nav a {
   font-weight: bold;
   font-size: 1rem;
 }
+
+
+
+  section {
+    padding: 2rem;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  
 
 /* TITRE DE LA PAGE */
 .hero h1 {
@@ -169,14 +198,20 @@ nav a {
   box-shadow: 0 0 12px rgba(0,0,0,0.5);
 }
 
-/* FOOTER */
-footer {
-  background-color: var(--black);
-  color: var(--light-grey);
-  text-align: center;
-  bottom: 0;
-  width: 100vw;
-  position: fixed;
-  padding: 1.5rem;
-  margin-top: 3rem;
+svg {
+  width: auto;
+  height: auto;
+  filter: contrast(170%) brightness(1000%);
+  opacity: 10%;
 }
+
+footer {
+    background-color: var(--black);
+    color: var(--light-grey);
+    text-align: center;
+    bottom: 0;
+    width: 100vw;
+    position: fixed;
+    padding: 1.5rem;   
+    margin-top: 3rem;
+  }
